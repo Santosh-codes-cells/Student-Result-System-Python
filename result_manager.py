@@ -5,13 +5,16 @@ def add_student():
     roll = input("Enter roll number: ")
     marks = []
 
-    print("Enter marks for 3 subjects (Maths, Physics, Chemistry):")
-    for i in range(3):
+    print("Enter marks for 5 subjects (Telugu, English, Maths, Science, Social):")
+    for i in range(5):
         score = float(input("Enter marks: "))
         marks.append(score)
 
-    total = marks[0] + marks[1] + marks[2]
-    average = total / 3
+    total = 0
+    for m in marks:
+        total += m
+
+    average = total / 5
 
     if average >= 90:
         grade = "A+"
