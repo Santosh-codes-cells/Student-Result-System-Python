@@ -4,14 +4,14 @@ def add_student():
     name = input("Enter student name: ")
     roll = input("Enter roll number: ")
     marks = []
-    subjects = ["Maths", "Physics", "Chemistry"]
 
-    for subject in subjects:
-        score = float(input(f"Enter marks for {subject}: "))
+    print("Enter marks for 3 subjects (Maths, Physics, Chemistry):")
+    for i in range(3):
+        score = float(input("Enter marks: "))
         marks.append(score)
 
-    total = sum(marks)
-    average = total / len(subjects)
+    total = marks[0] + marks[1] + marks[2]
+    average = total / 3
 
     if average >= 90:
         grade = "A+"
@@ -34,21 +34,20 @@ def add_student():
     }
 
     students.append(student)
-    print("\nstudent added successfully!\n")
+    print("Student added successfully.")
 
 def view_students():
-    if not students:
+    if len(students) == 0:
         print("No student records found.")
-        return
-
-    for s in students:
-        print(f"\nName: {s['name']}")
-        print(f"Roll No: {s['roll']}")
-        print(f"Marks: {s['marks']}")
-        print(f"Total: {s['total']}")
-        print(f"Average: {s['average']:.2f}")
-        print(f"Grade: {s['grade']}")
-        print("-" * 30)
+    else:
+        for s in students:
+            print("\nName:", s['name'])
+            print("Roll No:", s['roll'])
+            print("Marks:", s['marks'])
+            print("Total:", s['total'])
+            print("Average:", round(s['average'], 2))
+            print("Grade:", s['grade'])
+            print("------------------------------")
 
 def main():
     while True:
@@ -56,17 +55,17 @@ def main():
         print("1. Add Student")
         print("2. View All Students")
         print("3. Exit")
+
         choice = input("Enter your choice: ")
 
-        if choice == '1':
+        if choice == "1":
             add_student()
-        elif choice == '2':
+        elif choice == "2":
             view_students()
-        elif choice == '3':
-            print("Exiting... Goodbye!")
+        elif choice == "3":
+            print("Exiting program. Goodbye!")
             break
         else:
-            print("Invalid choice. Try again!")
+            print("Invalid choice. Please try again.")
 
-if __name__ == "__main__":
-    main()
+main()
