@@ -24,4 +24,4 @@ A simple command-line Python project to manage student exam results.
 3. Open a terminal and navigate to the project folder.
 4. Run the program:
    ```bash
-   python main.py
+   python student_result_system.py
